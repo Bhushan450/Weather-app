@@ -4,7 +4,7 @@ A simple and responsive Weather Application built using **HTML**, **CSS**, and *
 
 Users can search for any city and view the current weather conditions instantly.
 
----
+Live link - https://weather101app.netlify.app/
 
 ## 📸 Preview
 
