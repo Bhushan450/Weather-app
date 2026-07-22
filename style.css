@@ -13,7 +13,9 @@ body{
 
     display:flex;
     justify-content:center;
-    align-items:center;
+    align-items:flex-start;
+
+    padding:40px 20px;
 
     background:
         linear-gradient(
@@ -25,29 +27,32 @@ body{
     background-size:cover;
     background-position:center;
     background-repeat:no-repeat;
+    background-attachment:fixed;
 
-    overflow:hidden;
+    overflow-y:auto;
 }
 
-/* Floating glass effect */
+/* ===========================
+        Glass Container
+=========================== */
 
 .container{
 
     width:430px;
+    max-width:100%;
 
-    padding:30px;
+    padding:28px;
 
-    border-radius:30px;
+    border-radius:28px;
 
     background:rgba(255,255,255,.15);
 
     backdrop-filter:blur(18px);
+    -webkit-backdrop-filter:blur(18px);
 
     border:1px solid rgba(255,255,255,.25);
 
-    box-shadow:
-
-    0 20px 45px rgba(0,0,0,.35);
+    box-shadow:0 20px 45px rgba(0,0,0,.35);
 
     text-align:center;
 
@@ -56,17 +61,17 @@ body{
 
 @keyframes fadeIn{
 
-from{
+    from{
 
-    opacity:0;
-    transform:translateY(30px);
-}
+        opacity:0;
+        transform:translateY(30px);
+    }
 
-to{
+    to{
 
-    opacity:1;
-    transform:translateY(0);
-}
+        opacity:1;
+        transform:translateY(0);
+    }
 
 }
 
@@ -74,20 +79,22 @@ to{
 
     color:white;
 
+    font-size:2.2rem;
+
+    font-weight:700;
+
     margin-bottom:25px;
-
-    font-size:2rem;
-
-    letter-spacing:1px;
 }
 
-/* Search */
+/* ===========================
+        Search Box
+=========================== */
 
 .search-box{
 
     display:flex;
 
-    gap:10px;
+    gap:12px;
 
     margin-bottom:30px;
 }
@@ -96,10 +103,9 @@ to{
 
     flex:1;
 
-    padding:15px 18px;
+    padding:15px 20px;
 
     border:none;
-
     outline:none;
 
     border-radius:50px;
@@ -107,37 +113,50 @@ to{
     background:rgba(255,255,255,.9);
 
     font-size:16px;
+
+    color:#333;
+}
+
+.search-box input::placeholder{
+
+    color:#666;
 }
 
 .search-box button{
 
     border:none;
 
+    outline:none;
+
     cursor:pointer;
 
-    padding:15px 25px;
+    padding:15px 24px;
 
     border-radius:50px;
 
-    background:#2196f3;
+    background:#1e88e5;
 
     color:white;
 
+    font-size:15px;
+
     font-weight:600;
 
-    transition:.3s;
+    transition:.3s ease;
 }
 
 .search-box button:hover{
 
+    background:#1565c0;
+
     transform:translateY(-3px);
 
-    background:#0b7dda;
-
-    box-shadow:0 8px 20px rgba(0,0,0,.25);
+    box-shadow:0 8px 18px rgba(0,0,0,.25);
 }
 
-/* Weather */
+/* ===========================
+        Weather Card
+=========================== */
 
 .weather-card{
 
@@ -146,21 +165,23 @@ to{
 
 #cityName{
 
-    font-size:34px;
+    font-size:38px;
 
-    font-weight:600;
+    font-weight:700;
+
+    margin-bottom:10px;
 }
 
 #weatherIcon{
 
-    width:120px;
+    width:100px;
 
     margin:8px auto;
 }
 
 #temperature{
 
-    font-size:72px;
+    font-size:62px;
 
     font-weight:700;
 
@@ -169,14 +190,18 @@ to{
 
 #condition{
 
-    font-size:20px;
+    font-size:22px;
 
     text-transform:capitalize;
 
-    margin-bottom:25px;
-
     color:#eef7ff;
+
+    margin-bottom:25px;
 }
+
+/* ===========================
+        Details Grid
+=========================== */
 
 .details{
 
@@ -195,7 +220,7 @@ to{
 
     background:rgba(255,255,255,.12);
 
-    transition:.3s;
+    transition:.3s ease;
 }
 
 .detail-box:hover{
@@ -207,44 +232,100 @@ to{
 
 .detail-box h3{
 
+    color:#d9f0ff;
+
     font-size:15px;
 
     font-weight:500;
 
-    color:#d9f0ff;
-
-    margin-bottom:8px;
+    margin-bottom:10px;
 }
 
 .detail-box p{
 
-    font-size:23px;
+    font-size:22px;
 
     font-weight:700;
+
+    color:white;
 }
+
+/* ===========================
+        Scrollbar
+=========================== */
+
+::-webkit-scrollbar{
+
+    width:8px;
+}
+
+::-webkit-scrollbar-thumb{
+
+    background:rgba(255,255,255,.4);
+
+    border-radius:20px;
+}
+
+/* ===========================
+        Mobile
+=========================== */
 
 @media(max-width:480px){
 
-.container{
+    body{
 
-    width:95%;
+        padding:20px 12px;
+    }
 
-    padding:22px;
-}
+    .container{
 
-.search-box{
+        width:100%;
 
-    flex-direction:column;
-}
+        padding:20px;
+    }
 
-.search-box button{
+    .container h1{
 
-    width:100%;
-}
+        font-size:1.8rem;
+    }
 
-#temperature{
+    .search-box{
 
-    font-size:58px;
-}
+        flex-direction:column;
+    }
 
+    .search-box button{
+
+        width:100%;
+    }
+
+    #cityName{
+
+        font-size:30px;
+    }
+
+    #temperature{
+
+        font-size:52px;
+    }
+
+    #weatherIcon{
+
+        width:85px;
+    }
+
+    #condition{
+
+        font-size:18px;
+    }
+
+    .detail-box{
+
+        padding:15px;
+    }
+
+    .detail-box p{
+
+        font-size:18px;
+    }
 }
