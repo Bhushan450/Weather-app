@@ -1,5 +1,9 @@
 
-const API_KEY = "7ba5107f05033ee618c96de9be0602bd";
+const API_KEY = globalThis.OPENWEATHER_API_KEY;
+
+if (!API_KEY) {
+    throw new Error("OPENWEATHER_API_KEY is not configured.");
+}
 
 document.getElementById("searchBtn").addEventListener("click", async () => {
 
